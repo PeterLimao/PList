@@ -1,6 +1,6 @@
 <style lang="less">
     .loading-transition {
-        transition: all 0.5s ease;
+        transition: opacity 0.5s ease;
     }
 
     .loading-leave {
@@ -9,8 +9,8 @@
 </style>
 <template>
     <div class="app">
-        <v-loading v-show="!isLoad" transition="loading"></v-loading>
-        <v-main v-show="isLoad"></v-main>
+        <v-loading v-if="!isLoad" transition="loading"></v-loading>
+        <v-main v-if="isLoad"></v-main>
     </div>
 </template>
 <script>
@@ -27,10 +27,9 @@
         },
         ready: function() {
             var _self = this;
-            //TODO loading
             window.setTimeout(function() {
                 _self.isLoad = true;
-            }, 1000);
+            });
         },
         components: {
             'v-loading': loading,
