@@ -27,6 +27,7 @@
             position: fixed;
             right: 56px + 28px;
             bottom: 56px;
+            z-index: 10;
             .input-area {
                 display: block;
                 resize: none;

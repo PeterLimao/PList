@@ -27,9 +27,9 @@
         },
         ready: function() {
             var _self = this;
-            window.setTimeout(function() {
+            window.onload = function() {
                 _self.isLoad = true;
-            });
+            };
         },
         components: {
             'v-loading': loading,
