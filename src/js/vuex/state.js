@@ -7,17 +7,6 @@ var state = {
     ],
     menuShowFlag: false,
     panelShowFlag: false,
-    doneList: [],
-    deletedList: [],
-    doingList: [
-        {
-            date: '',
-            list: [
-                {
-                    msg: ''
-                }
-            ]
-        }
-    ]
+    todoList: {}
 };
 module.exports = state;

@@ -76,7 +76,7 @@
             <i class="glyphicon glyphicon-plus"></i>
         </div>
         <div class="panel" v-show="isShowPanel" transition="panel">
-            <textarea class="input-area" placeholder="写点什么吧!"></textarea>
+            <textarea class="input-area" placeholder="写点什么吧!" v-model="message"></textarea>
             <div class="footer-panel">
                 <div class="col-xs-6">
                     <v-date-picker></v-date-picker>
@@ -93,6 +93,11 @@
     var actions = require('actions');
 
     module.exports = {
+        data: function() {
+            return {
+                message: '',
+            }
+        },
         vuex: {
             getters: {
                 isShowPanel: function(state) {
@@ -100,7 +105,8 @@
                 }
             },
             actions: {
-                setPanel: actions.setPanel
+                setPanel: actions.setPanel,
+                addTodoList: actions.addTodoList
             }
         },
         methods: {
@@ -108,7 +114,12 @@
                 this.setPanel(!this.isShowPanel);
             },
             addList: function() {
-
+                this.addTodoList({
+                    date: '2015',
+                    msg: this.message,
+                    state: 'doing'
+                });
+                this.setPanel(false);
             }
         },
         components: {
