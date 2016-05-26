@@ -91,11 +91,13 @@
 <script>
     var datePicker = require('components/datePicker');
     var actions = require('actions');
+    var dateUtil = require('tools/dateUtil');
 
     module.exports = {
         data: function() {
             return {
                 message: '',
+                dateValue: dateUtil.getToday()
             }
         },
         vuex: {
@@ -115,11 +117,17 @@
             },
             addList: function() {
                 this.addTodoList({
-                    date: '2015',
+                    date: this.dateValue,
                     msg: this.message,
                     state: 'doing'
                 });
+                this.message = '';
                 this.setPanel(false);
+            }
+        },
+        events: {
+            'newDateValue': function(dateValue) {
+                this.dateValue = dateValue;
             }
         },
         components: {

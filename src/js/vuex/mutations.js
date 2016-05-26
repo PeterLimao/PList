@@ -12,10 +12,16 @@ var mutations = {
         state.panelShowFlag = false;
     },
     ADD_TODO_LIST: function(state, item) {
-        state.todoList[new Date().getTime()] = item;
+        item.id = new Date().getTime();
+        state.todoList.push(item);
     },
-    SET_TODO_LIST: function(state, key, item) {
-        state.todoList[key] = item;
+    SET_TODO_LIST: function(state, item) {
+        for (var i = 0; i < state.todoList.length; i++) {
+            if (item.id === state.todoList[i].id) {
+                state.todoList[i] = item;
+                break;
+            }
+        }
     }
 };
 module.exports = mutations;

@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
     .trans-menu-transition {
         transition: all 0.4s ease;
     }

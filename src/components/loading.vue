@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
     @keyframes trans {
         from, to {
             transform: scale(0);

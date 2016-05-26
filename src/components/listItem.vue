@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
     .list-item {
         width: 80%;
         margin: 0 auto;
@@ -112,7 +112,7 @@
         <ul>
             <li>
                 <div class="list-title">
-                    2015-01-02 星期一
+                    {{item.date}}
                 </div>
             </li>
             <li>
@@ -123,8 +123,8 @@
                         </div>
                     </div>
                     <div class="input-msg" :class="[isFinsh ? 'done-text' : '']">
-                        <textarea class="text-area" v-if="isEdit" :class="[isAddEditHeight ? 'add-edit-height' : '']"></textarea>
-                        <span v-else>12312312312312312312</span>
+                        <textarea class="text-area" v-if="isEdit" :class="[isAddEditHeight ? 'add-edit-height' : '']" v-model="item.msg"></textarea>
+                        <span v-else>{{item.msg}}</span>
                     </div>
                     <div>
                         <div class="remove-box">
@@ -150,6 +150,7 @@
                 isAddEditHeight: false
             }
         },
+        props: ['item'],
         methods: {
             setFinsh: function() {
                 this.isFinsh = !this.isFinsh;

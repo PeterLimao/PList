@@ -9,8 +9,8 @@
     </div>
 </template>
 <script>
-var datePicker = require('vue-datepicker');
-var dateUtil = require('tools/dateUtil');
+var datePicker = require('vue-datepicker'),
+    dateUtil = require('tools/dateUtil');
 
 var datePickerOption = {
     type: 'day',
@@ -37,8 +37,13 @@ module.exports = {
         }
     },
     computed: {
-        todayTime: function() {
-            return dateUtil.getToday();
+        todayTime: {
+            get: function() {
+                return dateUtil.getToday();
+            },
+            set: function(newValue) {
+                this.$dispatch('newDateValue', newValue);
+            }
         }
     },
     components: {

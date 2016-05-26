@@ -3,7 +3,9 @@
         <v-header></v-header>
         <v-nav></v-nav>
         <v-add-panel></v-add-panel>
-        <v-day-list-item></v-day-list-item>
+        <div class="main-content" v-for="item in todoList">
+            <v-list-item :item="item"></v-list-item>
+        </div>
     </div>
 </template>
 <script>
@@ -11,14 +13,22 @@
         nav = require('components/nav'),
         addPanel = require('components/addPanel'),
         datePicker = require('components/datePicker'),
-        dayListItem = require('components/dayListItem');
+        listItem = require('components/listItem'),
+        actions = require('actions');
 
     module.exports = {
+        vuex: {
+            getters: {
+                todoList: function(state) {
+                    return state.todoList;
+                }
+            }
+        },
         components: {
             'v-header': header,
             'v-nav': nav,
             'v-add-panel': addPanel,
-            'v-day-list-item': dayListItem
+            'v-list-item': listItem
         }
     };
 </script>

@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
     .loading-transition {
         transition: opacity 0.5s ease;
     }

@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
     .header {
         .navbar {
             background: #6f5499;

@@ -7,6 +7,6 @@ var state = {
     ],
     menuShowFlag: false,
     panelShowFlag: false,
-    todoList: {}
+    todoList: []
 };
 module.exports = state;
