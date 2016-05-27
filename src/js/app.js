@@ -1,9 +1,12 @@
 var vue = require('vue'),
-    vuex = require('vuex');
+    vuex = require('vuex'),
+    filters = require('mFilter');
 
 vue.use(vuex);
 vue.config.debug = true;
 vue.config.devtools = true;
+//注册过滤器
+filters(vue);
 
 var app = require('components/app');
 

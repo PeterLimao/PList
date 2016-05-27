@@ -26,7 +26,7 @@
                     <span class="navbar-brand glyphicon glyphicon-menu-hamburger" @click="clickMenu">
                     </span>
                     <span class="navbar-brand">
-                        PetersList
+                        PList
                     </span>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 <style lang="less" scoped>
+    /*基础样式*/
     .list-item {
         width: 80%;
         margin: 0 auto;
@@ -106,13 +107,26 @@
     .add-edit-height {
         height: 180px;
     }
+
+    /*媒体查询部分*/
+    @media(max-width: 1200px) {
+        .input-msg {
+            width: 70%;
+        }
+    }
+
+    @media(max-width: 450px) {
+        .input-msg {
+            width: 60%;
+        }
+    }
 </style>
 <template>
     <div class="list-item" :class="[isEdit ? 'item-edit-mode' : '']" @transitionend="addEditHeight">
         <ul>
             <li>
-                <div class="list-title">
-                    {{item.date}}
+                <div class="list-title" v-if="item.head">
+                    {{item.date | timeToDate}}
                 </div>
             </li>
             <li>
@@ -127,7 +141,7 @@
                         <span v-else>{{item.msg}}</span>
                     </div>
                     <div>
-                        <div class="remove-box">
+                        <div class="remove-box" @click="remove(item.id)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </div>
                     </div>
@@ -142,12 +156,19 @@
     </div>
 </template>
 <script>
+    var actions = require('actions');
+
     module.exports = {
         data: function() {
             return {
                 isFinsh: false,
                 isEdit: false,
                 isAddEditHeight: false
+            }
+        },
+        vuex: {
+            actions: {
+                removeTodoList: actions.removeTodoList
             }
         },
         props: ['item'],
@@ -160,6 +181,9 @@
             },
             addEditHeight: function() {
                 this.isAddEditHeight = true;
+            },
+            remove: function(id) {
+                this.removeTodoList(id);
             }
         }
     };

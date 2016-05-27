@@ -117,7 +117,7 @@
             },
             addList: function() {
                 this.addTodoList({
-                    date: this.dateValue,
+                    date: new Date(this.dateValue).getTime(),
                     msg: this.message,
                     state: 'doing'
                 });

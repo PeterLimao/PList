@@ -8,4 +8,12 @@ dateUtil.getToday = function() {
     return year + '/' + month + '/' + day;
 };
 
+dateUtil.timeToDate = function(time) {
+    var date = new Date(time);
+    var year = date.getFullYear();
+    var month = date.getMonth() < 11 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+    var day = date.getDate();
+    return year + '/' + month + '/' + day;
+};
+
 module.exports = dateUtil;

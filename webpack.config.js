@@ -3,12 +3,13 @@ var webpack = require('webpack'),
     htmlWebpackPlugin = require('html-webpack-plugin');
 
 var myAlias = {
-    components: __dirname + '/src/components',
-    state: __dirname + '/src/js/vuex/state',
-    mutations: __dirname + '/src/js/vuex/mutations',
-    store: __dirname + '/src/js/vuex/store',
-    actions: __dirname + '/src/js/vuex/actions',
-    tools: __dirname + '/src/js/tools'
+    components: path.join(__dirname, './src/components'),
+    state: path.join(__dirname, './src/js/vuex/state'),
+    mutations: path.join(__dirname, './src/js/vuex/mutations'),
+    store: path.join(__dirname, './src/js/vuex/store'),
+    actions: path.join(__dirname, './src/js/vuex/actions'),
+    tools: path.join(__dirname, './src/js/tools'),
+    mFilter: path.join(__dirname, './src/js/filters')
 };
 
 module.exports = {

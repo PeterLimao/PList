@@ -15,6 +15,9 @@ var actions = {
     },
     addTodoList: function(store, item) {
         store.dispatch('ADD_TODO_LIST', item);
+    },
+    removeTodoList: function(store, id) {
+        store.dispatch('REMOVE_TODO_LIST', id);
     }
 };
 
