@@ -1,4 +1,5 @@
 <style lang="less" scoped>
+    /*基本样式*/
     .begin-new-day {
         margin: 20px auto;
         background: #6f5499;
@@ -18,7 +19,7 @@
     }
 </style>
 <template>
-    <div class="main">
+    <section class="main">
         <v-header></v-header>
         <v-nav></v-nav>
         <v-add-panel></v-add-panel>
@@ -28,7 +29,7 @@
         <div class="begin-new-day">
             点击红色按钮，开始新的一天 :)
         </div>
-    </div>
+    </section>
 </template>
 <script>
     var header = require('components/header'),

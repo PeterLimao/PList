@@ -71,7 +71,7 @@
     }
 </style>
 <template>
-    <div class="add-panel">
+    <section class="add-panel">
         <div class="add-btn" :class="[isShowPanel ? 'btn-rotate' : '']" @click="setShowPanel">
             <i class="glyphicon glyphicon-plus"></i>
         </div>
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 <script>
     var datePicker = require('components/datePicker');

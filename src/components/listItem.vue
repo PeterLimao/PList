@@ -69,7 +69,7 @@
         font-size: 16px;
         color: #222222;
         vertical-align: top;
-        width: 90%;
+        width: 85%;
     }
     .remove-box {
         i {
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="input-msg" :class="[isFinsh ? 'done-text' : '']">
-                        <textarea class="text-area" v-if="isEdit" :class="[isAddEditHeight ? 'add-edit-height' : '']" v-model="item.msg"></textarea>
+                        <textarea class="text-area" v-if="isEdit" :class="[isAddEditHeight ? 'add-edit-height' : '']" v-model="item.msg" autofocus></textarea>
                         <span v-else>{{item.msg}}</span>
                     </div>
                     <div>

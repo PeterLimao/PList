@@ -22,7 +22,7 @@
     }
 </style>
 <template>
-    <div class="list-panel">
+    <section class="list-panel">
         <div class="type-title">
             <span class="badge">{{menuItem.msg}}</span>
         </div>
@@ -31,7 +31,7 @@
                 <v-list-item :item="item"></v-list-item>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 <script>
     var listItem = require('components/listItem');

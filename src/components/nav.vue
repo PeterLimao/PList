@@ -1,4 +1,5 @@
 <style lang="less" scoped>
+    /*动画效果*/
     .trans-menu-transition {
         transition: all 0.4s ease;
     }
@@ -7,6 +8,7 @@
         transform: translateX(-250px);
     }
 
+    /*基本样式*/
     .nav {
         position: fixed;
         z-index: 10;
@@ -53,7 +55,7 @@
     }
 </style>
 <template>
-    <div class="nav" :class="[isShowMenu ? '': 'leave']" v-show="isShowMenu" transition="trans-menu">
+    <nav class="nav" :class="[isShowMenu ? '': 'leave']" v-show="isShowMenu" transition="trans-menu">
         <div>
             <ul class="list-group">
                 <li class="list-group-item" v-for="item in menuList">
@@ -63,7 +65,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </nav>
 </template>
 <script>
     var actions = require('actions');

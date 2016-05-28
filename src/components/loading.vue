@@ -1,4 +1,5 @@
 <style lang="less" scoped>
+    /*动画部分*/
     @keyframes trans {
         from, to {
             transform: scale(0);
@@ -16,6 +17,7 @@
         animation-iteration-count: infinite;
     }
 
+    /*基本样式*/
     .loading {
         position: absolute;
         width: 100%;
@@ -59,7 +61,7 @@
     }
 </style>
 <template>
-    <div class="loading">
+    <section class="loading">
         <div class="content">
             <div class="frame-content">
                 <div class="frame-1"></div>
@@ -69,5 +71,5 @@
                 加载中...
             </p>
         </div>
-    </div>
+    </section>
 </template>

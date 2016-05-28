@@ -8,10 +8,10 @@
     }
 </style>
 <template>
-    <div class="app">
+    <section class="app">
         <v-loading v-if="!isLoad" transition="loading"></v-loading>
         <v-main v-if="isLoad"></v-main>
-    </div>
+    </section>
 </template>
 <script>
     var store = require('store'),
