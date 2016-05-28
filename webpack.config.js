@@ -15,7 +15,7 @@ var myAlias = {
 module.exports = {
     entry: ['./src/js/app'],
     output: {
-        path: path.join(__dirname, './dist/js'),
+        path: path.join(__dirname, './js'),
         filename: '[name].js',
         chunkname: '[id].chunk.js'
     },
@@ -37,7 +37,7 @@ module.exports = {
             }
         }),
         new htmlWebpackPlugin({
-            filename: path.join(__dirname, './dist/app.html'),
+            filename: path.join(__dirname, './index.html'),
             template: './src/app.html',
             inject: true,
             hash: true
