@@ -8,14 +8,22 @@
         text-align: center;
         line-height: 30px;
     }
+
+    .main-panel-content {
+        width: 100%;
+        margin: 70px auto;
+        display: -webkit-box;
+        display: -moz-box;
+        overflow: scroll;;
+    }
 </style>
 <template>
     <div class="main">
         <v-header></v-header>
         <v-nav></v-nav>
         <v-add-panel></v-add-panel>
-        <div class="main-content" v-for="item in todoList | orderBy 'date' -1 ">
-            <v-list-item :item="item"></v-list-item>
+        <div class="main-panel-content">
+            <v-list-panel :menu-item="menuItem" v-for="menuItem in menuList"></v-list-panel>
         </div>
         <div class="begin-new-day">
             点击红色按钮，开始新的一天 :)
@@ -27,14 +35,13 @@
         nav = require('components/nav'),
         addPanel = require('components/addPanel'),
         datePicker = require('components/datePicker'),
-        listItem = require('components/listItem'),
-        actions = require('actions');
+        listPanel = require('components/listPanel');
 
     module.exports = {
         vuex: {
             getters: {
-                todoList: function(state) {
-                    return state.todoList;
+                menuList: function(state) {
+                    return state.menuList;
                 }
             }
         },
@@ -42,7 +49,7 @@
             'v-header': header,
             'v-nav': nav,
             'v-add-panel': addPanel,
-            'v-list-item': listItem
+            'v-list-panel': listPanel
         }
     };
 </script>

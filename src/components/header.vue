@@ -1,5 +1,10 @@
 <style lang="less" scoped>
+    /*基础样式*/
     .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         .navbar {
             background: #6f5499;
             border-radius: 0;
