@@ -3,7 +3,7 @@
     .list-item {
         width: 80%;
         margin: 0 auto;
-        transition: all 0.2s ease 0.2s;
+        transition: all 0.2s ease;
     }
 
     ul {
@@ -12,18 +12,18 @@
     }
 
     .list-title {
-        color: #6f5499;
+        color: #aaa;
         text-align: center;
-        font-size: 12px;
         min-height: 16px;
         padding: 10px;
     }
 
     .list-content {
-        height: 50px;
         background: #fff;
         padding: 10px;
         transition: all 0.2s ease;
+        min-height: 55px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
         & > div {
             display: inline-block;
             height: 30px;
@@ -70,6 +70,7 @@
         color: #222222;
         vertical-align: top;
         width: 85%;
+        word-break: break-all;
     }
     .remove-box {
         i {
@@ -138,7 +139,7 @@
                     </div>
                     <div class="input-msg" :class="[isFinsh ? 'done-text' : '']">
                         <textarea class="text-area" v-if="isEdit" :class="[isAddEditHeight ? 'add-edit-height' : '']" v-model="item.msg" autofocus></textarea>
-                        <span v-else>{{item.msg}}</span>
+                        <span v-if="!isEdit">{{item.msg}}</span>
                     </div>
                     <div>
                         <div class="remove-box" @click="remove(item.id)">
@@ -161,20 +162,31 @@
     module.exports = {
         data: function() {
             return {
-                isFinsh: false,
                 isEdit: false,
                 isAddEditHeight: false
             }
         },
+        computed: {
+            isFinsh: function() {
+                return this.item.state === 'done' ? true : false;
+            },
+        },
         vuex: {
             actions: {
-                removeTodoList: actions.removeTodoList
+                removeTodoList: actions.removeTodoList,
+                addTodoList: actions.addTodoList
             }
         },
         props: ['item'],
         methods: {
             setFinsh: function() {
-                this.isFinsh = !this.isFinsh;
+                if (this.isFinsh) {
+                    this.item.state = 'doing';
+                } else {
+                    this.item.state = 'done';
+                }
+                this.removeTodoList(this.item.id);
+                this.addTodoList(this.item);
             },
             editMode: function() {
                 this.isEdit = !this.isEdit;

@@ -36,6 +36,9 @@
             i {
                 color: #fff;
             }
+            a {
+                color: #fff;
+            }
             .badge {
                 background: #fff;
                 color: #6f5499;
@@ -46,6 +49,9 @@
         }
         i {
             margin-right: 5px;
+            color: #6f5499;
+        }
+        a {
             color: #6f5499;
         }
     }
@@ -61,7 +67,7 @@
                 <li class="list-group-item" v-for="item in menuList">
                     <span class="badge">{{item.count}}</span>
                     <i class="{{item.icon}}"></i>
-                    {{item.msg}}
+                    <a href="#{{item.index}}" @click="hideMenu">{{item.msg}}</a>
                 </li>
             </ul>
         </div>
@@ -80,7 +86,13 @@
                 }
             },
             actions: {
-                setAllListCount: actions.setAllListCount
+                setAllListCount: actions.setAllListCount,
+                setShowMenu: actions.setMenu
+            }
+        },
+        methods: {
+            hideMenu: function() {
+                this.setShowMenu(false);
             }
         }
     };

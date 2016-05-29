@@ -61,7 +61,7 @@
     }
 </style>
 <template>
-    <section class="loading">
+    <section class="loading" v-if="!isLoad">
         <div class="content">
             <div class="frame-content">
                 <div class="frame-1"></div>
@@ -73,3 +73,14 @@
         </div>
     </section>
 </template>
+<script>
+    module.exports = {
+        vuex: {
+            getters: {
+                isLoad: function(state) {
+                    return state.isLoad;
+                }
+            }
+        }
+    }
+</script>

@@ -1,5 +1,9 @@
 <style lang="less" scoped>
     /*基本样式*/
+    .main {
+        padding-top: 70px;
+    }
+
     .begin-new-day {
         margin: 20px auto;
         background: #6f5499;
@@ -12,14 +16,15 @@
 
     .main-panel-content {
         width: 100%;
-        margin: 70px auto;
+        margin: 0 auto;
         display: -webkit-box;
         display: -moz-box;
-        overflow: scroll;;
+        overflow-x: hidden;
+        transition: all 0.2s ease;
     }
 </style>
 <template>
-    <section class="main">
+    <section class="main" v-if="isLoad">
         <v-header></v-header>
         <v-nav></v-nav>
         <v-add-panel></v-add-panel>
@@ -36,13 +41,17 @@
         nav = require('components/nav'),
         addPanel = require('components/addPanel'),
         datePicker = require('components/datePicker'),
-        listPanel = require('components/listPanel');
+        listPanel = require('components/listPanel'),
+        actions = require('actions');
 
     module.exports = {
         vuex: {
             getters: {
                 menuList: function(state) {
                     return state.menuList;
+                },
+                isLoad: function(state) {
+                    return state.isLoad;
                 }
             }
         },

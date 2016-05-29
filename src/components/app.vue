@@ -1,36 +1,25 @@
-<style lang="less" scoped>
-    .loading-transition {
-        transition: opacity 0.5s ease;
-    }
-
-    .loading-leave {
-        opacity: 0;
-    }
-</style>
 <template>
     <section class="app">
-        <v-loading v-if="!isLoad" transition="loading"></v-loading>
-        <v-main v-if="isLoad"></v-main>
+        <v-loading></v-loading>
+        <v-main></v-main>
     </section>
 </template>
 <script>
     var store = require('store'),
         loading = require('components/loading'),
-        main = require('components/main');
+        main = require('components/main'),
+        actions = require('actions');
 
     module.exports = {
-        store: store,
-        data: function() {
-            return {
-                isLoad: false
+        vuex: {
+            actions: {
+                setLoad: actions.setLoad
             }
         },
         ready: function() {
-            var _self = this;
-            window.onload = function() {
-                _self.isLoad = true;
-            };
+            this.setLoad(true);
         },
+        store: store,
         components: {
             'v-loading': loading,
             'v-main': main,

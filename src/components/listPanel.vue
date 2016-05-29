@@ -19,15 +19,17 @@
         width: 100%;
         background: #fff;
         margin: 10px auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 </style>
 <template>
-    <section class="list-panel">
+    <section id="{{menuItem.index}}" class="list-panel" v-if="list.length">
         <div class="type-title">
             <span class="badge">{{menuItem.msg}}</span>
         </div>
         <div class="panel-content">
-            <div class="main-content" v-for="item in todoList | orderBy 'date' -1 ">
+            <div class="main-content" v-for="item in list | orderBy 'date' -1 ">
                 <v-list-item :item="item"></v-list-item>
             </div>
         </div>
@@ -37,12 +39,34 @@
     var listItem = require('components/listItem');
 
     module.exports = {
+        data: function() {
+            return {
+                list: []
+            }
+        },
         props: ['menuItem'],
         vuex: {
             getters: {
                 todoList: function(state) {
                     return state.todoList;
+                },
+                todoDoingList: function(state) {
+                    return state.todoDoingList;
+                },
+                todoDoneList: function(state) {
+                    return state.todoDoneList;
                 }
+            }
+        },
+        ready: function() {
+            if (this.menuItem.index === 'all') {
+                this.list = this.todoList;
+            }
+            if (this.menuItem.index === 'doing') {
+                this.list = this.todoDoingList;
+            }
+            if (this.menuItem.index === 'done') {
+                this.list = this.todoDoneList;
             }
         },
         components: {

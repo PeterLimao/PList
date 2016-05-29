@@ -1,6 +1,11 @@
-<style lang="less">
+<style lang="less" scoped>
+    /*基本样式*/
     .cov-date-box {
         background: #fff;
+    }
+
+    .date-picker {
+        cursor: pointer;
     }
 </style>
 <template>
