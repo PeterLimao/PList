@@ -174,7 +174,8 @@
         vuex: {
             actions: {
                 removeTodoList: actions.removeTodoList,
-                addTodoList: actions.addTodoList
+                setTodoListState: actions.setTodoListState,
+                setTodoListMsg: actions.setTodoListMsg
             }
         },
         props: ['item'],
@@ -185,8 +186,7 @@
                 } else {
                     this.item.state = 'done';
                 }
-                this.removeTodoList(this.item.id);
-                this.addTodoList(this.item);
+                this.setTodoListState(this.item);
             },
             editMode: function() {
                 this.isEdit = !this.isEdit;
