@@ -29,7 +29,7 @@
             <span class="badge">{{menuItem.msg}}</span>
         </div>
         <div class="panel-content">
-            <div class="main-content" v-for="item in list | orderBy 'date' -1 ">
+            <div class="main-content" v-for="item in list | orderBy 'date' -1 " track-by="id">
                 <v-list-item :item="item"></v-list-item>
             </div>
         </div>
