@@ -190,6 +190,9 @@
             },
             editMode: function() {
                 this.isEdit = !this.isEdit;
+                if (!this.isEdit) {
+                    this.setTodoListMsg(this.item);
+                }
             },
             addEditHeight: function() {
                 this.isAddEditHeight = true;

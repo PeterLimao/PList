@@ -29,6 +29,13 @@ var actions = {
         store.dispatch('SET_TODO_LIST', item);
     },
     setTodoListMsg: function(store, item) {
+        if (item.state === 'doing') {
+            store.dispatch('SET_TODO_DOING_LIST', item);
+        }
+        if (item.state === 'done') {
+            store.dispatch('SET_TODO_DONE_LIST', item);
+        }
+        store.dispatch('SET_TODO_LIST', item);
     }
 };
 

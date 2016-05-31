@@ -61,15 +61,29 @@ var mutations = {
     'SET_TODO_DOING_LIST': function(state, item) {
         for (var i = 0; i < state.todoDoingList.length; i++) {
             if (state.todoDoingList[i].id === item.id) {
-                state.todoDoingList[i] = item;
+                var newHeadFlag = state.todoDoingList[i - 1] && state.todoDoingList[i - 1].date === item.date ? false : true;
+                state.todoDoingList.$set(i, {
+                    id: item.id,
+                    date: item.date,
+                    state: item.state,
+                    msg: item.msg,
+                    head: newHeadFlag
+                });
                 break;
             }
         }
     },
     'SET_TODO_DONE_LIST': function(state, item) {
-        for (var i = 0; i < state.todoDoneList; i++) {
-            if (state.todoDoneList[i].id === item.id) {
-                state.todoDoneList[i] = item;
+        for (var i = 0; i < state.todoDoneList.length; i++) {
+            if (state.todoList[i].id === item.id) {
+                var newHeadFlag = state.todoDoneList[i - 1] && state.todoDoneList[i - 1].date === item.date ? false : true;
+                state.todoDoneList.$set(i, {
+                    id: item.id,
+                    date: item.date,
+                    state: item.state,
+                    msg: item.msg,
+                    head: newHeadFlag
+                });
                 break;
             }
         }
