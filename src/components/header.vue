@@ -41,17 +41,15 @@
     </header>
 </template>
 <script>
-    var actions = require('actions');
+    import Actions from 'actions';
 
-    module.exports = {
+    export default {
         vuex: {
             getters: {
-                menuShowFlag: function(state) {
-                    return state.menuShowFlag;
-                }
+                menuShowFlag: (state) => state.menuShowFlag
             },
             actions: {
-                setMenu: actions.setMenu
+                setMenu: Actions.setMenu
             }
         },
         methods: {

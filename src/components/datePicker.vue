@@ -14,8 +14,8 @@
     </div>
 </template>
 <script>
-var datePicker = require('vue-datepicker'),
-    dateUtil = require('tools/dateUtil');
+import DatePicker from 'vue-datepicker';
+import DateUtil from 'tools/dateUtil';
 
 var datePickerOption = {
     type: 'day',
@@ -35,24 +35,18 @@ var datePickerOption = {
     }
 };
 
-module.exports = {
-    data: function() {
-        return {
-            option: datePickerOption
-        }
-    },
+export default {
+    data: () => ({ option: datePickerOption }),
     computed: {
         todayTime: {
-            get: function() {
-                return dateUtil.getToday();
-            },
+            get: () => DateUtil.getToday(),
             set: function(newValue) {
                 this.$dispatch('newDateValue', newValue);
             }
         }
     },
     components: {
-        'date-picker': datePicker
+        'date-picker': DatePicker
     }
 }
 </script>

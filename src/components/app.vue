@@ -5,24 +5,24 @@
     </section>
 </template>
 <script>
-    var store = require('store'),
-        loading = require('components/loading'),
-        main = require('components/main'),
-        actions = require('actions');
+    import Store from 'store';
+    import Loading from 'components/loading';
+    import Main from 'components/main';
+    import Actions from 'actions';
 
-    module.exports = {
+    export default {
         vuex: {
             actions: {
-                setLoad: actions.setLoad
+                setLoad: Actions.setLoad
             }
         },
         ready: function() {
             this.setLoad(true);
         },
-        store: store,
+        store: Store,
         components: {
-            'v-loading': loading,
-            'v-main': main,
+            'v-loading': Loading,
+            'v-main': Main,
         }
     };
 </script>

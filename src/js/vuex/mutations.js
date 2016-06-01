@@ -1,16 +1,14 @@
-var vue = require('vue');
-
-var mutations = {
-    'SET_MENU_FLAG': function(state, isLoad) {
+let mutations = {
+    'SET_MENU_FLAG': (state, isLoad) => {
         state.menuShowFlag = isLoad;
     },
-    'SET_PANEL_FLAG': function(state, isLoad) {
+    'SET_PANEL_FLAG': (state, isLoad) => {
         state.panelShowFlag = isLoad;
     },
-    'SET_LOAD_STATE': function(state, isLoad) {
+    'SET_LOAD_STATE': (state, isLoad) => {
         state.isLoad = isLoad;
     },
-    'ADD_TODO_LIST': function(state, item) {
+    'ADD_TODO_LIST': (state, item) => {
         item.id = new Date().getTime();
         item.head = true;
         for (var i = 0; i < state.todoList.length; i++) {
@@ -21,7 +19,7 @@ var mutations = {
         }
         state.todoList.push(item);
     },
-    'ADD_TODO_DOING_LIST': function(state, item) {
+    'ADD_TODO_DOING_LIST': (state, item) => {
         item.id = new Date().getTime();
         item.head = true;
         for (var i = 0; i < state.todoDoingList.length; i++) {
@@ -32,7 +30,7 @@ var mutations = {
         }
         state.todoDoingList.push(item);
     },
-    'ADD_TODO_DONE_LIST': function(state, item) {
+    'ADD_TODO_DONE_LIST': (state, item) => {
         item.id = new Date().getTime();
         item.head = true;
         for (var i = 0; i < state.todoDoneList.length; i++) {
@@ -43,7 +41,7 @@ var mutations = {
         }
         state.todoDoneList.push(item);
     },
-    'SET_TODO_LIST': function(state, item) {
+    'SET_TODO_LIST': (state, item) => {
         for (var i = 0; i < state.todoList.length; i++) {
             if (state.todoList[i].id === item.id) {
                 var newHeadFlag = state.todoList[i - 1] && state.todoList[i - 1].date === item.date ? false : true;
@@ -58,7 +56,7 @@ var mutations = {
             }
         }
     },
-    'SET_TODO_DOING_LIST': function(state, item) {
+    'SET_TODO_DOING_LIST': (state, item) => {
         for (var i = 0; i < state.todoDoingList.length; i++) {
             if (state.todoDoingList[i].id === item.id) {
                 var newHeadFlag = state.todoDoingList[i - 1] && state.todoDoingList[i - 1].date === item.date ? false : true;
@@ -73,7 +71,7 @@ var mutations = {
             }
         }
     },
-    'SET_TODO_DONE_LIST': function(state, item) {
+    'SET_TODO_DONE_LIST': (state, item) => {
         for (var i = 0; i < state.todoDoneList.length; i++) {
             if (state.todoList[i].id === item.id) {
                 var newHeadFlag = state.todoDoneList[i - 1] && state.todoDoneList[i - 1].date === item.date ? false : true;
@@ -88,7 +86,7 @@ var mutations = {
             }
         }
     },
-    'REMOVE_TODO_LIST': function(state, id) {
+    'REMOVE_TODO_LIST': (state, id) => {
         for (var i = 0; i < state.todoList.length; i++) {
             if (id === state.todoList[i].id) {
                 if (state.todoList[i + 1]) {
@@ -101,7 +99,7 @@ var mutations = {
             }
         }
     },
-    'REMOVE_TODO_DOING_LIST': function(state, id) {
+    'REMOVE_TODO_DOING_LIST': (state, id) => {
         for (var i = 0; i < state.todoDoingList.length; i++) {
             if (id === state.todoDoingList[i].id) {
                 if (state.todoDoingList[i + 1]) {
@@ -114,7 +112,7 @@ var mutations = {
             }
         }
     },
-    'REMOVE_TODO_DONE_LIST': function(state, id) {
+    'REMOVE_TODO_DONE_LIST': (state, id) => {
         for (var i = 0; i < state.todoDoneList.length; i++) {
             if (id === state.todoDoneList[i].id) {
                 if (state.todoDoneList[i + 1]) {
@@ -128,4 +126,4 @@ var mutations = {
         }
     }
 };
-module.exports = mutations;
+export default mutations;

@@ -1,7 +1,5 @@
-var dateUtil = require('tools/dateUtil');
+import DateUtil from 'tools/dateUtil';
 
-module.exports = function(vue) {
-    vue.filter('timeToDate', function(value) {
-        return dateUtil.timeToDate(value);
-    });
+export default (vue) => {
+    vue.filter('timeToDate', (value) => DateUtil.timeToDate(value));
 };

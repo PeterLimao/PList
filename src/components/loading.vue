@@ -74,12 +74,10 @@
     </section>
 </template>
 <script>
-    module.exports = {
+    export default {
         vuex: {
             getters: {
-                isLoad: function(state) {
-                    return state.isLoad;
-                }
+                isLoad: (state) => state.isLoad
             }
         }
     }

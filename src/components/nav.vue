@@ -74,20 +74,17 @@
     </nav>
 </template>
 <script>
-    var actions = require('actions');
-    module.exports = {
+    import Actions from 'actions';
+
+    export default {
         vuex: {
             getters: {
-                menuList: function(state) {
-                    return state.menuList;
-                },
-                isShowMenu: function(state) {
-                    return state.menuShowFlag;
-                }
+                menuList: (state) => state.menuList,
+                isShowMenu: (state) => state.menuShowFlag
             },
             actions: {
-                setAllListCount: actions.setAllListCount,
-                setShowMenu: actions.setMenu
+                setAllListCount: Actions.setAllListCount,
+                setShowMenu: Actions.setMenu
             }
         },
         methods: {

@@ -89,26 +89,22 @@
     </section>
 </template>
 <script>
-    var datePicker = require('components/datePicker');
-    var actions = require('actions');
-    var dateUtil = require('tools/dateUtil');
+    import DatePicker from 'components/datePicker';
+    import Actions from 'actions';
+    import DateUtil from 'tools/dateUtil';
 
-    module.exports = {
-        data: function() {
-            return {
-                message: '',
-                dateValue: dateUtil.getToday()
-            }
-        },
+    export default {
+        data: () => ({
+            message: '',
+            dateValue: DateUtil.getToday()
+        }),
         vuex: {
             getters: {
-                isShowPanel: function(state) {
-                    return state.panelShowFlag;
-                }
+                isShowPanel: (state) => state.panelShowFlag
             },
             actions: {
-                setPanel: actions.setPanel,
-                addTodoList: actions.addTodoList
+                setPanel: Actions.setPanel,
+                addTodoList: Actions.addTodoList
             }
         },
         methods: {
@@ -131,7 +127,7 @@
             }
         },
         components: {
-            'v-date-picker': datePicker
+            'v-date-picker': DatePicker
         }
     };
 </script>

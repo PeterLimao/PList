@@ -1,6 +1,6 @@
-var dateUtil = {};
+let dateUtil = {};
 
-dateUtil.getToday = function() {
+dateUtil.getToday = () => {
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth() < 11 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
@@ -8,7 +8,7 @@ dateUtil.getToday = function() {
     return year + '/' + month + '/' + day;
 };
 
-dateUtil.timeToDate = function(time) {
+dateUtil.timeToDate = (time) => {
     var date = new Date(time);
     var year = date.getFullYear();
     var month = date.getMonth() < 11 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
@@ -16,4 +16,4 @@ dateUtil.timeToDate = function(time) {
     return year + '/' + month + '/' + day;
 };
 
-module.exports = dateUtil;
+export default dateUtil;

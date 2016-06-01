@@ -1,10 +1,13 @@
-var actions = require('actions'),
-    mutations = require('mutations'),
-    state = require('state'),
-    vuex = require('vuex');
+import Actions from 'actions';
+import Mutations from 'mutations';
+import State from 'state';
+import Vuex from 'vuex';
+import Vue from 'vue';
 
-module.exports = new vuex.Store({
-    state: state,
-    mutations: mutations,
-    actions: actions
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+    state: State,
+    mutations: Mutations,
+    actions: Actions
 });

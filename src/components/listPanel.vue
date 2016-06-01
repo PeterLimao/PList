@@ -36,26 +36,18 @@
     </section>
 </template>
 <script>
-    var listItem = require('components/listItem');
+    import ListItem from 'components/listItem';
 
-    module.exports = {
-        data: function() {
-            return {
-                list: []
-            }
-        },
+    export default {
+        data: () => ({
+            list: []
+        }),
         props: ['menuItem'],
         vuex: {
             getters: {
-                todoList: function(state) {
-                    return state.todoList;
-                },
-                todoDoingList: function(state) {
-                    return state.todoDoingList;
-                },
-                todoDoneList: function(state) {
-                    return state.todoDoneList;
-                }
+                todoList: (state) => state.todoList,
+                todoDoingList: (state) => state.todoDoingList,
+                todoDoneList: (state) => state.todoDoneList
             }
         },
         ready: function() {
@@ -70,7 +62,7 @@
             }
         },
         components: {
-            'v-list-item': listItem
+            'v-list-item': ListItem
         }
     };
 </script>

@@ -22,7 +22,13 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.vue$/, loader: 'vue'
+                test: /\.vue$/,
+                loader: 'vue'
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
             }
         ]
     },
@@ -42,5 +48,9 @@ module.exports = {
             inject: true,
             hash: true
         })
-    ]
+    ],
+    babel: {
+        presets: ['es2015', 'stage-0'],
+        plugins: ['transform-runtime']
+    }
 }

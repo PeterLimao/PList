@@ -157,15 +157,13 @@
     </div>
 </template>
 <script>
-    var actions = require('actions');
+    import Actions from 'actions';
 
-    module.exports = {
-        data: function() {
-            return {
-                isEdit: false,
-                isAddEditHeight: false
-            }
-        },
+    export default {
+        data: () => ({
+            isEdit: false,
+            isAddEditHeight: false
+        }),
         computed: {
             isFinsh: function() {
                 return this.item.state === 'done' ? true : false;
@@ -173,9 +171,9 @@
         },
         vuex: {
             actions: {
-                removeTodoList: actions.removeTodoList,
-                setTodoListState: actions.setTodoListState,
-                setTodoListMsg: actions.setTodoListMsg
+                removeTodoList: Actions.removeTodoList,
+                setTodoListState: Actions.setTodoListState,
+                setTodoListMsg: Actions.setTodoListMsg
             }
         },
         props: ['item'],

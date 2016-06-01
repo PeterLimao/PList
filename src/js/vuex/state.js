@@ -1,4 +1,4 @@
-var state = {
+let state = {
     menuList: [
         {index: 'all', msg: '全部事项', count: 0, icon: 'glyphicon glyphicon-list-alt', state: 'all'},
         {index: 'doing', msg: '在忙事项', count: 0, icon: 'glyphicon glyphicon-option-horizontal', state: 'doing'},
@@ -11,4 +11,4 @@ var state = {
     todoDoneList: [],
     todoDoingList: []
 };
-module.exports = state;
+export default state;

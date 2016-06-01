@@ -37,29 +37,25 @@
     </section>
 </template>
 <script>
-    var header = require('components/header'),
-        nav = require('components/nav'),
-        addPanel = require('components/addPanel'),
-        datePicker = require('components/datePicker'),
-        listPanel = require('components/listPanel'),
-        actions = require('actions');
+    import Header from 'components/header';
+    import Nav from 'components/nav';
+    import AddPanel from 'components/addPanel';
+    import DatePicker from 'components/datePicker';
+    import ListPanel from 'components/listPanel';
+    import Actions from 'actions';
 
-    module.exports = {
+    export default {
         vuex: {
             getters: {
-                menuList: function(state) {
-                    return state.menuList;
-                },
-                isLoad: function(state) {
-                    return state.isLoad;
-                }
+                menuList: (state) => state.menuList,
+                isLoad: (state) => state.isLoad
             }
         },
         components: {
-            'v-header': header,
-            'v-nav': nav,
-            'v-add-panel': addPanel,
-            'v-list-panel': listPanel
+            'v-header': Header,
+            'v-nav': Nav,
+            'v-add-panel': AddPanel,
+            'v-list-panel': ListPanel
         }
     };
 </script>

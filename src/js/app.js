@@ -1,19 +1,18 @@
-var vue = require('vue'),
-    vuex = require('vuex'),
-    filters = require('mFilter');
+import Vue from 'vue';
+import Vuex from 'vuex';
+import Filters from 'mFilter';
 
-vue.use(vuex);
-vue.config.debug = true;
-vue.config.devtools = true;
+Vue.config.debug = true;
+Vue.config.devtools = true;
 //注册过滤器
-filters(vue);
+Filters(Vue);
 
-var app = require('components/app');
+import App from 'components/app';
 
 //创建vue实例，挂在在body上
-new vue({
+new Vue({
     el: 'body',
     components: {
-        'v-app': app
+        'v-app': App
     }
 });
