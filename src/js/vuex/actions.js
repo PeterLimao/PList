@@ -1,17 +1,23 @@
 let actions = {
-    setMenu: (store, isShow) => { store.dispatch('SET_MENU_FLAG', isShow); },
-    setPanel: (store, isShow) => { store.dispatch('SET_PANEL_FLAG', isShow); },
-    setLoad: (store, isLoad) => { store.dispatch('SET_LOAD_STATE', isLoad); },
-    addTodoList: (store, item) => {
+    setMenu (store, isShow) {
+        store.dispatch('SET_MENU_FLAG', isShow);
+    },
+    setPanel (store, isShow) {
+        store.dispatch('SET_PANEL_FLAG', isShow);
+    },
+    setLoad (store, isLoad) {
+        store.dispatch('SET_LOAD_STATE', isLoad);
+    },
+    addTodoList (store, item) {
         store.dispatch('ADD_TODO_DOING_LIST', item);
         store.dispatch('ADD_TODO_LIST', item);
     },
-    removeTodoList: (store, id) => {
+    removeTodoList (store, id) {
         store.dispatch('REMOVE_TODO_LIST', id);
         store.dispatch('REMOVE_TODO_DONE_LIST', id);
         store.dispatch('REMOVE_TODO_DOING_LIST', id);
     },
-    setTodoListState: (store, item) => {
+    setTodoListState (store, item) {
         if (item.state === 'doing') {
             store.dispatch('REMOVE_TODO_DONE_LIST', item.id);
             store.dispatch('ADD_TODO_DOING_LIST', item);
@@ -22,7 +28,7 @@ let actions = {
         }
         store.dispatch('SET_TODO_LIST', item);
     },
-    setTodoListMsg: (store, item) => {
+    setTodoListMsg (store, item) {
         if (item.state === 'doing') {
             store.dispatch('SET_TODO_DOING_LIST', item);
         }

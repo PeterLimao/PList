@@ -79,8 +79,12 @@
     export default {
         vuex: {
             getters: {
-                menuList: (state) => state.menuList,
-                isShowMenu: (state) => state.menuShowFlag
+                menuList (state) {
+                    return state.menuList;
+                },
+                isShowMenu (state) {
+                    return state.menuShowFlag;
+                }
             },
             actions: {
                 setAllListCount: Actions.setAllListCount,
@@ -88,7 +92,7 @@
             }
         },
         methods: {
-            hideMenu: function() {
+            hideMenu () {
                 this.setShowMenu(false);
             }
         }

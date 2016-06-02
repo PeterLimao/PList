@@ -46,15 +46,17 @@
     export default {
         vuex: {
             getters: {
-                menuShowFlag: (state) => state.menuShowFlag
+                menuShowFlag (state) {
+                    return state.menuShowFlag;
+                }
             },
             actions: {
                 setMenu: Actions.setMenu
             }
         },
         methods: {
-            clickMenu: function() {
-                var isShow = this.menuShowFlag;
+            clickMenu () {
+                let isShow = this.menuShowFlag;
                 this.setMenu(!isShow);
             }
         }

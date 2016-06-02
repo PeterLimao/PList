@@ -77,7 +77,9 @@
     export default {
         vuex: {
             getters: {
-                isLoad: (state) => state.isLoad
+                isLoad (state) {
+                    return state.isLoad;
+                }
             }
         }
     }

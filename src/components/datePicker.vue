@@ -36,11 +36,17 @@ var datePickerOption = {
 };
 
 export default {
-    data: () => ({ option: datePickerOption }),
+    data () {
+        return {
+            option: datePickerOption
+        }
+    },
     computed: {
         todayTime: {
-            get: () => DateUtil.getToday(),
-            set: function(newValue) {
+            get () {
+                return DateUtil.getToday()
+            },
+            set (newValue) {
                 this.$dispatch('newDateValue', newValue);
             }
         }

@@ -160,12 +160,14 @@
     import Actions from 'actions';
 
     export default {
-        data: () => ({
-            isEdit: false,
-            isAddEditHeight: false
-        }),
+        data () {
+            return {
+                isEdit: false,
+                isAddEditHeight: false
+            }
+        },
         computed: {
-            isFinsh: function() {
+            isFinsh () {
                 return this.item.state === 'done' ? true : false;
             },
         },
@@ -178,7 +180,7 @@
         },
         props: ['item'],
         methods: {
-            setFinsh: function() {
+            setFinsh () {
                 if (this.isFinsh) {
                     this.item.state = 'doing';
                 } else {
@@ -186,16 +188,16 @@
                 }
                 this.setTodoListState(this.item);
             },
-            editMode: function() {
+            editMode () {
                 this.isEdit = !this.isEdit;
                 if (!this.isEdit) {
                     this.setTodoListMsg(this.item);
                 }
             },
-            addEditHeight: function() {
+            addEditHeight () {
                 this.isAddEditHeight = true;
             },
-            remove: function(id) {
+            remove (id) {
                 this.removeTodoList(id);
             }
         }

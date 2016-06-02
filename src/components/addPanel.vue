@@ -94,13 +94,17 @@
     import DateUtil from 'tools/dateUtil';
 
     export default {
-        data: () => ({
-            message: '',
-            dateValue: DateUtil.getToday()
-        }),
+        data () {
+            return {
+                message: '',
+                dateValue: DateUtil.getToday()
+            }
+        },
         vuex: {
             getters: {
-                isShowPanel: (state) => state.panelShowFlag
+                isShowPanel (state) {
+                    return state.panelShowFlag;
+                }
             },
             actions: {
                 setPanel: Actions.setPanel,
@@ -108,10 +112,10 @@
             }
         },
         methods: {
-            setShowPanel: function() {
+            setShowPanel () {
                 this.setPanel(!this.isShowPanel);
             },
-            addList: function() {
+            addList () {
                 this.addTodoList({
                     date: new Date(this.dateValue).getTime(),
                     msg: this.message,
@@ -122,7 +126,7 @@
             }
         },
         events: {
-            'newDateValue': function(dateValue) {
+            newDateValue (dateValue) {
                 this.dateValue = dateValue;
             }
         },

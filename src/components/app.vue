@@ -16,7 +16,7 @@
                 setLoad: Actions.setLoad
             }
         },
-        ready: function() {
+        ready () {
             this.setLoad(true);
         },
         store: Store,

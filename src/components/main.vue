@@ -47,8 +47,12 @@
     export default {
         vuex: {
             getters: {
-                menuList: (state) => state.menuList,
-                isLoad: (state) => state.isLoad
+                menuList (state) {
+                    return state.menuList;
+                },
+                isLoad (state) {
+                    return state.isLoad;
+                }
             }
         },
         components: {

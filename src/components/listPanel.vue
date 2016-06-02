@@ -39,18 +39,26 @@
     import ListItem from 'components/listItem';
 
     export default {
-        data: () => ({
-            list: []
-        }),
+        data () {
+            return {
+                list: []
+            }
+        },
         props: ['menuItem'],
         vuex: {
             getters: {
-                todoList: (state) => state.todoList,
-                todoDoingList: (state) => state.todoDoingList,
-                todoDoneList: (state) => state.todoDoneList
+                todoList (state) {
+                    return state.todoList;
+                },
+                todoDoingList (state) {
+                    return state.todoDoingList;
+                },
+                todoDoneList (state) {
+                    return state.todoDoneList;
+                }
             }
         },
-        ready: function() {
+        ready() {
             if (this.menuItem.index === 'all') {
                 this.list = this.todoList;
             }
