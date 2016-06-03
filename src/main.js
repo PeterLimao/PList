@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Filters from 'mFilter';
+import Filters from 'filters';
 
 Vue.config.debug = true;
-Vue.config.devtools = true;
 //注册过滤器
 Filters(Vue);
 
-import App from 'components/app';
+import App from './app';
 
 //创建vue实例，挂在在body上
 new Vue({

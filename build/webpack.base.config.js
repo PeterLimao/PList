@@ -1,0 +1,59 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Path = require('path');
+
+var myAlias = {
+    components: Path.join(__dirname, '../src/components'),
+    state: Path.join(__dirname, '../src/vuex/state'),
+    mutations: Path.join(__dirname, '../src/vuex/mutations'),
+    store: Path.join(__dirname, '../src/vuex/store'),
+    actions: Path.join(__dirname, '../src/vuex/actions'),
+    tools: Path.join(__dirname, '../src/tools'),
+    filters: Path.join(__dirname, '../src/filters')
+};
+
+module.exports = {
+    entry: './src/main.js',
+    output: {
+        path: './dist',
+        publicpath: '/dist/',
+        filename: '[name].js',
+        chunkname: '[id].chunk.js'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.vue$/,
+                loader: 'vue'
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.vue', '.less', '.css'],
+        alias: myAlias
+    },
+    vue: {
+        loaders: {
+            css: ExtractTextPlugin.extract('css'),
+            less: ExtractTextPlugin.extract('css!less')
+        }
+    },
+    babel: {
+        presets: ['es2015', 'stage-0'],
+        plugins: ['transform-runtime']
+    },
+    plugins: [
+        new ExtractTextPlugin('style.css'),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'src/index.html',
+            inject: true,
+            hash: true
+        })
+    ]
+}
