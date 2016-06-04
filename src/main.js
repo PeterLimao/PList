@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Filters from 'filters';
 
-Vue.config.debug = true;
+Vue.config.debug = process.env.NODE_ENV === 'production' ? false : true;
 //注册过滤器
 Filters(Vue);
 
