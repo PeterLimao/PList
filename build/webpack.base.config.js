@@ -1,3 +1,4 @@
+var Webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Path = require('path');
@@ -13,7 +14,9 @@ var myAlias = {
 };
 
 module.exports = {
-    entry: './src/main.js',
+    entry: {
+        main: './src/main.js',
+    },
     output: {
         path: './dist',
         publicpath: '/dist/',

@@ -8,6 +8,15 @@ let mutations = {
     SET_LOAD_STATE (state, isLoad) {
         state.isLoad = isLoad;
     },
+    SET_TODO_LIST_COUNT (state) {
+        state.menuList[0].count = state.todoList.length;
+    },
+    SET_TODO_DOING_LIST_COUNT (state, count) {
+        state.menuList[1].count = state.todoDoingList.length;
+    },
+    SET_TODO_DONE_LIST_COUNT (state, count) {
+        state.menuList[2].count = state.todoDoneList.length;
+    },
     ADD_TODO_LIST (state, item) {
         item.id = new Date().getTime();
         item.head = true;

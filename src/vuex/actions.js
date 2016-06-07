@@ -1,6 +1,9 @@
 let actions = {
     setMenu (store, isShow) {
         store.dispatch('SET_MENU_FLAG', isShow);
+        store.dispatch('SET_TODO_LIST_COUNT');
+        store.dispatch('SET_TODO_DOING_LIST_COUNT');
+        store.dispatch('SET_TODO_DONE_LIST_COUNT');
     },
     setPanel (store, isShow) {
         store.dispatch('SET_PANEL_FLAG', isShow);
