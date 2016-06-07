@@ -46,7 +46,6 @@ let mutations = {
     },
     SET_TODO_LIST (state, item) {
         for (let i = 0; i < state.todoList.length; i++) {
-            console.log(i);
             if (state.todoList[i].id === item.id) {
                 let newHeadFlag = true;
                 if (state.todoList[i - 1]) {
@@ -68,7 +67,12 @@ let mutations = {
     SET_TODO_DOING_LIST (state, item) {
         for (let i = 0; i < state.todoDoingList.length; i++) {
             if (state.todoDoingList[i].id === item.id) {
-                var newHeadFlag = state.todoDoingList[i - 1] && state.todoDoingList[i - 1].date === item.date ? false : true;
+                let newHeadFlag = true;
+                if (state.todoDoingList[i - 1]) {
+                    if (state.todoDoingList[i - 1].date === item.date) {
+                        newHeadFlag = false;
+                    }
+                }
                 state.todoDoingList.$set(i, {
                     id: item.id,
                     date: item.date,
@@ -83,7 +87,12 @@ let mutations = {
     SET_TODO_DONE_LIST (state, item) {
         for (let i = 0; i < state.todoDoneList.length; i++) {
             if (state.todoList[i].id === item.id) {
-                var newHeadFlag = state.todoDoneList[i - 1] && state.todoDoneList[i - 1].date === item.date ? false : true;
+                let newHeadFlag = true;
+                if (state.todoDoneList[i - 1]) {
+                    if (state.todoDoneList[i - 1].date === item.date) {
+                        newHeadFlag = false;
+                    }
+                }
                 state.todoDoneList.$set(i, {
                     id: item.id,
                     date: item.date,
