@@ -24,7 +24,7 @@
     }
 </style>
 <template>
-    <section id="{{menuItem.index}}" class="list-panel" v-if="list.length">
+    <section id="{{menuItem.index}}" class="list-panel">
         <div class="type-title">
             <span class="badge">{{menuItem.msg}}</span>
         </div>

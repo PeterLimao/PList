@@ -23,11 +23,23 @@ let actions = {
     setTodoListState (store, item) {
         if (item.state === 'doing') {
             store.dispatch('REMOVE_TODO_DONE_LIST', item.id);
-            store.dispatch('ADD_TODO_DOING_LIST', item);
+            store.dispatch('ADD_TODO_DOING_LIST', {
+                id: item.id,
+                msg: item.msg,
+                date: item.date,
+                state: 'doing',
+                head: true
+            });
         }
         if (item.state === 'done') {
             store.dispatch('REMOVE_TODO_DOING_LIST', item.id);
-            store.dispatch('ADD_TODO_DONE_LIST', item)
+            store.dispatch('ADD_TODO_DONE_LIST', {
+                id: item.id,
+                msg: item.msg,
+                date: item.date,
+                state: 'done',
+                head: true
+            })
         }
         store.dispatch('SET_TODO_LIST', item);
     },

@@ -1,4 +1,5 @@
 <style lang="less">
+    /*基础样式部分*/
     .add-panel {
         position: relative;
         .add-btn {
@@ -57,6 +58,20 @@
         }
     }
 
+    .header-panel {
+        padding-left: 10px;
+        padding-top: 10px;
+        i {
+            color: #fff;
+            font-size: 20px;
+        }
+    }
+
+    .head-panel-visibility {
+        display: none;
+    }
+
+    /*动画部分*/
     .btn-rotate {
         transform: rotate(-45deg);
     }
@@ -69,6 +84,23 @@
         transform: translateY(-250px);
         opacity: 0;
     }
+
+    /*媒体查询*/
+    @media (max-width: 660px) {
+        .add-panel {
+            .panel {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+
+        .head-panel-visibility {
+            display: block;
+        }
+    }
 </style>
 <template>
     <section class="add-panel">
@@ -76,6 +108,9 @@
             <i class="glyphicon glyphicon-plus"></i>
         </div>
         <div class="panel" v-show="isShowPanel" transition="panel">
+            <div class="header-panel head-panel-visibility">
+                <i class="glyphicon glyphicon-remove" @click="setShowPanel"></i>
+            </div>
             <textarea class="input-area" placeholder="写点什么吧!" v-model="message"></textarea>
             <div class="footer-panel">
                 <div class="col-xs-6">
@@ -116,10 +151,14 @@
                 this.setPanel(!this.isShowPanel);
             },
             addList () {
+                let _msg = this.message.trim().length === 0 ? '写点什么吧' : this.message;
+
                 this.addTodoList({
                     date: new Date(this.dateValue).getTime(),
-                    msg: this.message,
-                    state: 'doing'
+                    msg: _msg,
+                    state: 'doing',
+                    id: new Date().getTime(),
+                    head: true
                 });
                 this.message = '';
                 this.setPanel(false);

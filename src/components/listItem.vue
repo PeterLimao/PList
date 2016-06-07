@@ -48,6 +48,7 @@
 
     .text-area {
         width: 100%;
+        color: #000;
         outline: none;
         resize: none;
         border: none;

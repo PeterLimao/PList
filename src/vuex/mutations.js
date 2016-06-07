@@ -18,8 +18,6 @@ let mutations = {
         state.menuList[2].count = state.todoDoneList.length;
     },
     ADD_TODO_LIST (state, item) {
-        item.id = new Date().getTime();
-        item.head = true;
         for (let i = 0; i < state.todoList.length; i++) {
             if (state.todoList[i].date === item.date) {
                 item.head = false;
@@ -29,8 +27,6 @@ let mutations = {
         state.todoList.push(item);
     },
     ADD_TODO_DOING_LIST (state, item) {
-        item.id = new Date().getTime();
-        item.head = true;
         for (let i = 0; i < state.todoDoingList.length; i++) {
             if (state.todoDoingList[i].date === item.date) {
                 item.head = false;
@@ -40,8 +36,6 @@ let mutations = {
         state.todoDoingList.push(item);
     },
     ADD_TODO_DONE_LIST (state, item) {
-        item.id = new Date().getTime();
-        item.head = true;
         for (let i = 0; i < state.todoDoneList.length; i++) {
             if (state.todoDoneList[i].date === item.date) {
                 item.head = false;
@@ -52,8 +46,14 @@ let mutations = {
     },
     SET_TODO_LIST (state, item) {
         for (let i = 0; i < state.todoList.length; i++) {
+            console.log(i);
             if (state.todoList[i].id === item.id) {
-                var newHeadFlag = state.todoList[i - 1] && state.todoList[i - 1].date === item.date ? false : true;
+                let newHeadFlag = true;
+                if (state.todoList[i - 1]) {
+                    if (state.todoList[i - 1].date === item.date) {
+                        newHeadFlag = false;
+                    }
+                }
                 state.todoList.$set(i, {
                     id: item.id,
                     date: item.date,

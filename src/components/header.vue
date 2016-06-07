@@ -1,10 +1,11 @@
 <style lang="less" scoped>
     /*基础样式*/
-    .header {
+    header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        z-index: 999;
     }
 
     .navbar {
@@ -27,7 +28,7 @@
     }
 </style>
 <template>
-    <header class="header">
+    <header>
         <div class="navbar">
             <div class="container-fiuld">
                 <div class="navbar-header">

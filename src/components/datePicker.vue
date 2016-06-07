@@ -1,4 +1,4 @@
-<style lang="less" scoped>
+<style lang="less">
     /*基本样式*/
     .cov-date-box {
         background: #fff;
