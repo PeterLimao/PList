@@ -1,6 +1,8 @@
 var Webpack = require('webpack');
 var Config = require('./webpack.base.config');
 
+//Config.output.publicPath = '';
+
 Config.plugins = (Config.plugins || []).concat([
     new Webpack.DefinePlugin({
         'process.env': {

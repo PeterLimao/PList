@@ -18,8 +18,7 @@ module.exports = {
         main: './src/main.js',
     },
     output: {
-        path: './dist',
-        publicpath: '/dist/',
+        path: './dist/assets/',
         filename: '[name].js',
         chunkname: '[id].chunk.js'
     },
@@ -53,7 +52,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: '../index.html',
             template: 'src/index.html',
             inject: true,
             hash: true
